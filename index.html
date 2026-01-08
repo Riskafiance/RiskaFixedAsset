@@ -75,7 +75,7 @@
             font-size: 0.95rem;
             display: inline-block;
             box-shadow: var(--shadow-sm);
-            white-space: nowrap; /* Prevents text wrapping */
+            white-space: nowrap;
         }
 
         .btn-cta:hover {
@@ -98,7 +98,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative; /* Needed for absolute mobile menu positioning */
+            position: relative;
         }
 
         .logo {
@@ -108,7 +108,7 @@
             display: flex;
             align-items: center;
             letter-spacing: -0.5px;
-            z-index: 1001; /* Ensure logo stays above mobile menu */
+            z-index: 1001;
         }
 
         .logo img {
@@ -138,13 +138,13 @@
             color: var(--accent-color);
         }
 
-        /* Hamburger Menu (Hidden on Desktop) */
+        /* Hamburger Menu */
         .hamburger-menu {
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
             color: var(--primary-color);
-            z-index: 1001; /* Ensure button stays above mobile menu */
+            z-index: 1001;
         }
 
         /* --- HERO SECTION --- */
@@ -184,6 +184,39 @@
             z-index: 10;
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        /* --- BADGES (New Section) --- */
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .platform-badge {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-windows {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .badge-mac {
+            background-color: rgba(0, 0, 0, 0.25);
+            color: #a3a3a3; /* Greyed out text */
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .hero h1 {
@@ -230,7 +263,8 @@
 
         .section-title h2 { font-size: 2.25rem; }
         
-        .badge {
+        /* Small standard badge for other sections */
+        .section-badge {
             background-color: rgba(0, 51, 102, 0.1);
             color: var(--primary-color);
             padding: 5px 12px;
@@ -458,7 +492,16 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="badge" style="background-color: rgba(255,255,255,0.1); color: #fff;">Version 2026.1 Available Now</span>
+                
+                <div class="badge-container">
+                    <div class="platform-badge badge-windows">
+                        <i class="fab fa-windows"></i> Windows Version 2026.1 Available
+                    </div>
+                    <div class="platform-badge badge-mac">
+                        <i class="fab fa-apple"></i> Mac Coming Soon
+                    </div>
+                </div>
+                
                 <h1>Professional Asset Management for CPAs</h1>
                 <p>The comprehensive solution for depreciation, tax compliance, and IRS form generation. Built by accountants, for accountants.</p>
                 <a href="#pricing" class="btn-cta" style="padding: 12px 28px; font-size: 1rem;">Get Started Today</a>
@@ -499,7 +542,7 @@
     <section id="compliance" class="section bg-light">
         <div class="container">
             <div class="section-title">
-                <span class="badge">Compliance First</span>
+                <span class="section-badge">Compliance First</span>
                 <h2>Automated IRS Logic</h2>
                 <p>Stop worrying about manual calculations and rule checks. We handle the heavy lifting.</p>
             </div>
@@ -593,7 +636,7 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="riskas.finances@gmail.com">riskas.finances@gmail.com</a></li>
+                        <li><a href="mailto:riskas.finances@gmail.com">riskas.finances@gmail.com</a></li>
                         <li><a href="https://riskasfinance.com/">www.riskasfinance.com</a></li>
                     </ul>
                 </div>
