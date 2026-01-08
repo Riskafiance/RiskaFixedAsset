@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.80">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riska's Fixed Assets | Professional Asset Management Software</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -10,18 +10,18 @@
     <style>
         /* --- CSS VARIABLES --- */
         :root {
-            --primary-color: #003366; /* Navy Blue */
+            --primary-color: #003366;
             --primary-dark: #002244;
             --secondary-color: #00509e;
-            --accent-color: #f26522; /* Orange */
+            --accent-color: #f26522;
             --accent-hover: #d94e0d;
-            --bg-light: #f8fafc; /* Very light blue-grey */
+            --bg-light: #f8fafc;
             --bg-white: #ffffff;
             --text-main: #1e293b;
             --text-muted: #64748b;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --radius: 8px;
         }
 
@@ -69,13 +69,13 @@
         .btn-cta {
             background-color: var(--accent-color);
             color: white;
-            /* Reduced padding to fit thinner header */
             padding: 8px 24px; 
             border-radius: var(--radius);
             font-weight: 600;
             font-size: 0.95rem;
             display: inline-block;
             box-shadow: var(--shadow-sm);
+            white-space: nowrap; /* Prevents text wrapping */
         }
 
         .btn-cta:hover {
@@ -84,11 +84,10 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* --- NAVIGATION (UPDATED FOR THINNER LOOK) --- */
+        /* --- NAVIGATION --- */
         header {
             background-color: var(--bg-white);
             border-bottom: 1px solid #e2e8f0;
-            /* Reduced padding from 1rem to 0.5rem */
             padding: 0.5rem 0; 
             position: sticky;
             top: 0;
@@ -99,19 +98,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative; /* Needed for absolute mobile menu positioning */
         }
 
         .logo {
-            font-size: 1.15rem; /* Slightly smaller font */
+            font-size: 1.15rem;
             font-weight: 800;
             color: var(--primary-color);
             display: flex;
             align-items: center;
             letter-spacing: -0.5px;
+            z-index: 1001; /* Ensure logo stays above mobile menu */
         }
 
         .logo img {
-            /* Reduced height from 40px to 32px */
             height: 32px; 
             width: auto;
             margin-right: 10px;
@@ -138,6 +138,15 @@
             color: var(--accent-color);
         }
 
+        /* Hamburger Menu (Hidden on Desktop) */
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            z-index: 1001; /* Ensure button stays above mobile menu */
+        }
+
         /* --- HERO SECTION --- */
         .hero {
             background: linear-gradient(160deg, #001529 0%, #003366 40%, #005c99 100%);
@@ -162,11 +171,9 @@
         .hero::after {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
+            width: 800px; height: 800px;
             background: radial-gradient(circle, rgba(0, 80, 158, 0.2) 0%, transparent 70%);
             pointer-events: none;
             z-index: 1;
@@ -213,9 +220,7 @@
         }
 
         /* --- FEATURES SECTION --- */
-        .section {
-            padding: 100px 0;
-        }
+        .section { padding: 100px 0; }
 
         .section-title {
             text-align: center;
@@ -223,9 +228,7 @@
             margin: 0 auto 60px auto;
         }
 
-        .section-title h2 {
-            font-size: 2.25rem;
-        }
+        .section-title h2 { font-size: 2.25rem; }
         
         .badge {
             background-color: rgba(0, 51, 102, 0.1);
@@ -273,24 +276,17 @@
             transition: transform 0.3s ease;
         }
         
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
+        .feature-card:hover::before { transform: scaleX(1); }
 
         .icon-box {
-            width: 50px;
-            height: 50px;
+            width: 50px; height: 50px;
             background-color: rgba(242, 101, 34, 0.1);
             color: var(--accent-color);
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin-bottom: 20px;
         }
 
-        /* --- COMPLIANCE (Grey BG) --- */
         .bg-light {
             background-color: var(--bg-light);
             border-top: 1px solid #e2e8f0;
@@ -306,8 +302,7 @@
         }
         
         .feature-list-col {
-            flex: 1;
-            min-width: 300px;
+            flex: 1; min-width: 300px;
             background: white;
             padding: 30px;
             border-radius: var(--radius);
@@ -317,25 +312,15 @@
         .specs-list li {
             padding: 12px 0;
             border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: flex-start;
+            display: flex; align-items: flex-start;
             color: var(--text-main);
         }
-
-        .specs-list li:last-child {
-            border-bottom: none;
-        }
-
-        .specs-list li i {
-            color: var(--accent-color);
-            margin-right: 15px;
-            margin-top: 4px;
-        }
+        
+        .specs-list li:last-child { border-bottom: none; }
+        .specs-list li i { color: var(--accent-color); margin-right: 15px; margin-top: 4px; }
 
         /* --- PRICING --- */
-        .pricing-section {
-            background: linear-gradient(to bottom, var(--bg-light) 50%, #fff 50%);
-        }
+        .pricing-section { background: linear-gradient(to bottom, var(--bg-light) 50%, #fff 50%); }
 
         .pricing-card {
             background: white;
@@ -351,8 +336,7 @@
         
         .best-value {
             position: absolute;
-            top: -15px;
-            left: 50%;
+            top: -15px; left: 50%;
             transform: translateX(-50%);
             background: var(--primary-color);
             color: white;
@@ -371,16 +355,11 @@
             letter-spacing: -2px;
         }
 
-        .price span {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            letter-spacing: normal;
-        }
+        .price span { font-size: 1.1rem; color: var(--text-muted); font-weight: 400; letter-spacing: normal; }
 
         /* --- FOOTER --- */
         footer {
-            background-color: #0f172a; /* Slate 900 */
+            background-color: #0f172a;
             color: #94a3b8;
             padding: 60px 0 30px 0;
             font-size: 0.9rem;
@@ -395,37 +374,60 @@
             padding-bottom: 40px;
         }
         
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 20px;
-        }
-        
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-col ul li a {
-            color: #94a3b8;
-        }
-        
-        .footer-col ul li a:hover {
-            color: var(--accent-color);
-        }
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #94a3b8; }
+        .footer-col ul li a:hover { color: var(--accent-color); }
+        .copyright { text-align: center; font-size: 0.85rem; }
 
-        .copyright {
-            text-align: center;
-            font-size: 0.85rem;
-        }
-
-        /* --- MOBILE RESPONSIVE --- */
+        /* --- MOBILE RESPONSIVE HAMBURGER MENU --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .pricing-section { background: var(--bg-light); }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
             
-            nav { flex-direction: column; gap: 15px; }
-            .nav-links { display: flex; flex-direction: column; gap: 10px; width: 100%; }
-            .btn-cta { width: 100%; text-align: center; box-sizing: border-box; }
+            /* Show Hamburger */
+            .hamburger-menu {
+                display: block;
+            }
+
+            /* Hide Nav Links by default and position them absolutely */
+            .nav-links {
+                display: none; /* Hidden by default */
+                position: absolute;
+                top: 100%; /* Push it right below the header */
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                border-top: 1px solid #eee;
+            }
+
+            /* When active class is added by JS, show it */
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a.nav-item {
+                margin: 10px 0;
+                font-size: 1.1rem;
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            /* Full width button on mobile menu */
+            .btn-cta {
+                width: 80%;
+                text-align: center;
+                margin-top: 10px;
+                padding: 12px 0;
+            }
+            
+            .pricing-section { background: var(--bg-light); }
         }
     </style>
 </head>
@@ -438,11 +440,16 @@
                     <img src="logo.png" alt="Riska's Finance Logo">
                     Riska's <span>Fixed Assets</span>
                 </div>
-                <div class="nav-links">
-                    <a href="#features" class="nav-item">Features</a>
-                    <a href="#compliance" class="nav-item">Compliance</a>
-                    <a href="#pricing" class="nav-item">Pricing</a>
-                    <a href="purchase.html" class="btn-cta" target="_blank">Buy License</a>
+                
+                <div class="hamburger-menu" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="#features" class="nav-item" onclick="toggleMenu()">Features</a>
+                    <a href="#compliance" class="nav-item" onclick="toggleMenu()">Compliance</a>
+                    <a href="#pricing" class="nav-item" onclick="toggleMenu()">Pricing</a>
+                    <a href="purchase.html" class="btn-cta" target="_blank" onclick="toggleMenu()">Buy License</a>
                 </div>
             </nav>
         </div>
@@ -471,23 +478,17 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="icon-box">
-                        <i class="fas fa-users"></i>
-                    </div>
+                    <div class="icon-box"><i class="fas fa-users"></i></div>
                     <h3>Multi-Client Ready</h3>
                     <p>Create separate .rfa files for unlimited clients. Features isolated databases and a "Recent Files" menu for quick switching.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon-box">
-                        <i class="fas fa-calculator"></i>
-                    </div>
+                    <div class="icon-box"><i class="fas fa-calculator"></i></div>
                     <h3>12 Depreciation Methods</h3>
                     <p>Includes MACRS (200, 150, SL), ACRS, Straight-Line, AMT, ACE, and Book. Supports 50 State-specific depreciation books.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon-box">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                    <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
                     <h3>Audit Defense</h3>
                     <p>Year-End Close Wizard locks prior periods to prevent historical data changes. Full audit trail tracks every creation and update.</p>
                 </div>
@@ -504,23 +505,17 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="icon-box">
-                        <i class="fas fa-magic"></i>
-                    </div>
+                    <div class="icon-box"><i class="fas fa-magic"></i></div>
                     <h3>Mid-Quarter Auto-Fix</h3>
                     <p>The system automatically detects if Q4 additions exceed 40% and adjusts conventions instantly to ensure compliance.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon-box">
-                        <i class="fas fa-percentage"></i>
-                    </div>
+                    <div class="icon-box"><i class="fas fa-percentage"></i></div>
                     <h3>Section 179 Logic</h3>
                     <p>Automatic phase-out calculations and eligibility checking based on asset life and method. Includes bonus depreciation toggle.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="icon-box">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                    </div>
+                    <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
                     <h3>Tax Forms Ready</h3>
                     <p>Generate IRS Form 4562 (Depreciation & Amortization) and Form 4797 (Sales of Business Property) instantly.</p>
                 </div>
@@ -598,7 +593,7 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="mailto:riskas.finances@gmail.com">riskas.finances@gmail.com</a></li>
+                        <li><a href="riskas.finances@gmail.com">riskas.finances@gmail.com</a></li>
                         <li><a href="https://riskasfinance.com/">www.riskasfinance.com</a></li>
                     </ul>
                 </div>
@@ -608,6 +603,13 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
