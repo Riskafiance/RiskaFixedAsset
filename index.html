@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.80">
+    <title>Riska's Fixed Assets | Professional Asset Management Software</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary-color: #003366; /* Navy Blue */
+            --primary-dark: #002244;
+            --secondary-color: #00509e;
+            --accent-color: #f26522; /* Orange */
+            --accent-hover: #d94e0d;
+            --bg-light: #f8fafc; /* Very light blue-grey */
+            --bg-white: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+        }
+
+        /* --- GLOBAL STYLES --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5em;
+            color: var(--primary-color);
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-cta {
+            background-color: var(--accent-color);
+            color: white;
+            /* Reduced padding to fit thinner header */
+            padding: 8px 24px; 
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-block;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-cta:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* --- NAVIGATION (UPDATED FOR THINNER LOOK) --- */
+        header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid #e2e8f0;
+            /* Reduced padding from 1rem to 0.5rem */
+            padding: 0.5rem 0; 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.15rem; /* Slightly smaller font */
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.5px;
+        }
+
+        .logo img {
+            /* Reduced height from 40px to 32px */
+            height: 32px; 
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            margin-left: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a.nav-item {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a.nav-item:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(160deg, #001529 0%, #003366 40%, #005c99 100%);
+            padding: 80px 0 100px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 80, 158, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            color: #e2e8f0;
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            z-index: 10;
+            margin-top: 50px;
+            border-radius: 12px;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            border: 4px solid rgba(255,255,255,0.15);
+            background: #1e293b;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-bg-image {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        /* --- FEATURES SECTION --- */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+        }
+        
+        .badge {
+            background-color: rgba(0, 51, 102, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary-color);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(242, 101, 34, 0.1);
+            color: var(--accent-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- COMPLIANCE (Grey BG) --- */
+        .bg-light {
+            background-color: var(--bg-light);
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* --- DETAILED LISTS --- */
+        .features-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            justify-content: center;
+        }
+        
+        .feature-list-col {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .specs-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: flex-start;
+            color: var(--text-main);
+        }
+
+        .specs-list li:last-child {
+            border-bottom: none;
+        }
+
+        .specs-list li i {
+            color: var(--accent-color);
+            margin-right: 15px;
+            margin-top: 4px;
+        }
+
+        /* --- PRICING --- */
+        .pricing-section {
+            background: linear-gradient(to bottom, var(--bg-light) 50%, #fff 50%);
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            text-align: center;
+            max-width: 450px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .best-value {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 10px 0;
+            letter-spacing: -2px;
+        }
+
+        .price span {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: normal;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0f172a; /* Slate 900 */
+            color: #94a3b8;
+            padding: 60px 0 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #94a3b8;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .pricing-section { background: var(--bg-light); }
+            
+            nav { flex-direction: column; gap: 15px; }
+            .nav-links { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+            .btn-cta { width: 100%; text-align: center; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="logo.png" alt="Riska's Finance Logo">
+                    Riska's <span>Fixed Assets</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features" class="nav-item">Features</a>
+                    <a href="#compliance" class="nav-item">Compliance</a>
+                    <a href="#pricing" class="nav-item">Pricing</a>
+                    <a href="purchase.html" class="btn-cta" target="_blank">Buy License</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge" style="background-color: rgba(255,255,255,0.1); color: #fff;">Version 2026.1 Available Now</span>
+                <h1>Professional Asset Management for CPAs</h1>
+                <p>The comprehensive solution for depreciation, tax compliance, and IRS form generation. Built by accountants, for accountants.</p>
+                <a href="#pricing" class="btn-cta" style="padding: 12px 28px; font-size: 1rem;">Get Started Today</a>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <img src="software.png" alt="Riska's Fixed Assets Dashboard" class="hero-bg-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Riska's Fixed Assets?</h2>
+                <p>We combine enterprise-grade calculations with a user-friendly interface.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Multi-Client Ready</h3>
+                    <p>Create separate .rfa files for unlimited clients. Features isolated databases and a "Recent Files" menu for quick switching.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>12 Depreciation Methods</h3>
+                    <p>Includes MACRS (200, 150, SL), ACRS, Straight-Line, AMT, ACE, and Book. Supports 50 State-specific depreciation books.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Audit Defense</h3>
+                    <p>Year-End Close Wizard locks prior periods to prevent historical data changes. Full audit trail tracks every creation and update.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="compliance" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <span class="badge">Compliance First</span>
+                <h2>Automated IRS Logic</h2>
+                <p>Stop worrying about manual calculations and rule checks. We handle the heavy lifting.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Mid-Quarter Auto-Fix</h3>
+                    <p>The system automatically detects if Q4 additions exceed 40% and adjusts conventions instantly to ensure compliance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Section 179 Logic</h3>
+                    <p>Automatic phase-out calculations and eligibility checking based on asset life and method. Includes bonus depreciation toggle.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Tax Forms Ready</h3>
+                    <p>Generate IRS Form 4562 (Depreciation & Amortization) and Form 4797 (Sales of Business Property) instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reports" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Complete Feature List</h2>
+            </div>
+            <div class="features-wrapper">
+                <div class="feature-list-col">
+                    <h3><i class="fas fa-chart-pie"></i> Reporting</h3>
+                    <ul class="specs-list">
+                        <li><i class="fas fa-check"></i> Fixed Asset Summary & Detail Reports (PDF)</li>
+                        <li><i class="fas fa-check"></i> Depreciation Schedules & Projections</li>
+                        <li><i class="fas fa-check"></i> Journal Entry Reports (Monthly/Annual)</li>
+                        <li><i class="fas fa-check"></i> Category & Location Summaries</li>
+                        <li><i class="fas fa-check"></i> Multi-Book Comparison Reports</li>
+                    </ul>
+                </div>
+                <div class="feature-list-col">
+                    <h3><i class="fas fa-tools"></i> Tools & Usability</h3>
+                    <ul class="specs-list">
+                        <li><i class="fas fa-check"></i> CSV Import/Export capabilities</li>
+                        <li><i class="fas fa-check"></i> Asset Photo Management & Warranty Tracking</li>
+                        <li><i class="fas fa-check"></i> Tax Projection Dashboard (10-Year Forecast)</li>
+                        <li><i class="fas fa-check"></i> Dark Mode & Customizable Columns</li>
+                        <li><i class="fas fa-check"></i> Professional Tkinter GUI</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section bg-light pricing-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>One license, unlimited clients.</p>
+            </div>
+            <div class="pricing-card">
+                <div class="best-value">Best Value</div>
+                <h3>Annual License</h3>
+                <div class="price">$199 <span>/ year</span></div>
+                <ul class="specs-list" style="margin-bottom: 30px;">
+                    <li><i class="fas fa-check-circle"></i> Unlimited Clients & Assets</li>
+                    <li><i class="fas fa-check-circle"></i> Federal & State Tax Updates</li>
+                    <li><i class="fas fa-check-circle"></i> All 12 Depreciation Methods</li>
+                    <li><i class="fas fa-check-circle"></i> Priority Email Support</li>
+                </ul>
+                <a href="purchase.html" class="btn-cta" style="display: block; width: 100%; box-sizing: border-box; padding: 12px 28px;" target="_blank">Buy License Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Riska's Finance</h4>
+                    <p>Professional tax and accounting software solutions located in Dixon, IL.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#compliance">Compliance</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Release Notes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:support@riskasfinance.com">support@riskasfinance.com</a></li>
+                        <li><a href="https://riskasfinance.com/">www.riskasfinance.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Riska's Finance. All Rights Reserved. | Developed by Amarildi and Arbri Riska.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
