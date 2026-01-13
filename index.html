@@ -9,30 +9,30 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-QM7Z2NMQDB');
     </script>
 
-    <title>Riska's Fixed Assets | Professional Asset Management Software</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Riska's Fixed Assets | Professional Depreciation Software</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- CSS VARIABLES --- */
         :root {
-            --primary-color: #003366;
-            --primary-dark: #002244;
-            --secondary-color: #00509e;
-            --accent-color: #f26522;
-            --accent-hover: #d94e0d;
-            --bg-light: #f8fafc;
+            /* Trustworthy Corporate Palette */
+            --primary: #0f4c81;       /* Classic Blue */
+            --primary-dark: #082d4f;
+            --secondary: #64748b;     /* Slate Gray */
+            --accent: #2c7be5;        /* Bright Action Blue */
+            --bg-light: #f8f9fa;      /* Very light gray for contrast */
             --bg-white: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --text-main: #1e293b;     /* Dark Slate */
+            --text-muted: #475569;
+            
+            /* Spacing & Layout */
             --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --container-width: 1100px;
         }
 
         /* --- GLOBAL STYLES --- */
@@ -49,431 +49,325 @@
         h1, h2, h3, h4 {
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 0.5em;
-            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            color: var(--primary-dark);
         }
 
         p {
             color: var(--text-muted);
             margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
 
-        a {
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+        a { text-decoration: none; transition: all 0.2s ease; }
+        ul { list-style: none; padding: 0; margin: 0; }
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: var(--container-width);
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         /* --- BUTTONS --- */
-        .btn-cta {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 8px 24px; 
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
             border-radius: var(--radius);
             font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-block;
-            box-shadow: var(--shadow-sm);
-            white-space: nowrap;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
         }
 
-        .btn-cta:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.5); /* Slight white tint on hover */
         }
 
         /* --- NAVIGATION --- */
         header {
             background-color: var(--bg-white);
             border-bottom: 1px solid #e2e8f0;
-            padding: 0.5rem 0; 
+            padding: 15px 0; 
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
         }
 
         .logo {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             font-weight: 800;
-            color: var(--primary-color);
+            color: var(--primary);
             display: flex;
             align-items: center;
-            letter-spacing: -0.5px;
-            z-index: 1001;
+            gap: 12px;
         }
 
-        .logo img {
-            height: 32px; 
-            width: auto;
-            margin-right: 10px;
+        .logo img { 
+            height: 40px; 
+            width: auto; 
         }
 
-        .logo span {
-            color: var(--accent-color);
-            margin-left: 4px;
-        }
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-links a { color: var(--text-main); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--primary); }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .nav-links a.nav-item {
-            color: var(--text-main);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .nav-links a.nav-item:hover {
-            color: var(--accent-color);
-        }
-
-        /* Hamburger Menu */
-        .hamburger-menu {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            z-index: 1001;
-        }
+        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(160deg, #001529 0%, #003366 40%, #005c99 100%);
-            padding: 80px 0 100px 0;
-            color: white;
+            padding: 80px 0 150px; 
             text-align: center;
             position: relative;
-            overflow: hidden;
+            background: linear-gradient(-45deg, #ffffff, #f0f4f8, #e2e8f0, #dbeafe);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            overflow: hidden; 
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
-        }
-        
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(0, 80, 158, 0.2) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 1;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; letter-spacing: -1px; }
+        .hero .sub-header { font-size: 1.25rem; max-width: 700px; margin: 0 auto 30px; color: var(--secondary); }
 
-        /* --- BADGES --- */
-        .badge-container {
+        /* Flow Diagram */
+        .process-flow {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            align-items: center;
+            gap: 20px;
+            margin: 40px auto;
             flex-wrap: wrap;
         }
-
-        .platform-badge {
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+        
+        .flow-step {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 1px solid #cbd5e1;
             font-weight: 600;
+            color: var(--primary);
+            box-shadow: var(--shadow);
             display: flex;
             align-items: center;
-            gap: 8px;
-            backdrop-filter: blur(4px);
+            gap: 10px;
+        }
+        
+        .flow-arrow { color: #cbd5e1; font-size: 1.2rem; }
+
+        .hero-buttons {
+            margin-top: 30px;
         }
 
-        .badge-windows {
-            background-color: rgba(255, 255, 255, 0.15);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .badge-mac {
-            /* UPDATED: Made active style to show availability */
-            background-color: rgba(255, 255, 255, 0.15);
-            color: #ffffff; 
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .hero h1 {
-            color: white;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .hero p {
-            color: #e2e8f0;
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .hero-image-wrapper {
+        .hero-img-container {
+            margin-top: 50px;
+            max-width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+            border: 1px solid #e2e8f0;
+            background: white;
             position: relative;
             z-index: 10;
-            margin-top: 50px;
-            border-radius: 12px;
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
-            overflow: hidden;
-            border: 4px solid rgba(255,255,255,0.15);
-            background: #1e293b;
-            backdrop-filter: blur(10px);
         }
-        
-        .hero-bg-image {
-            width: 100%;
-            display: block;
-            height: auto;
-        }
+
+        .hero-img { width: 100%; display: block; height: auto; }
 
         /* --- FEATURES SECTION --- */
-        .section { padding: 100px 0; }
+        .section { padding: 80px 0; }
+        .bg-gray { background-color: var(--bg-light); }
 
-        .section-title {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px auto;
-        }
-
-        .section-title h2 { font-size: 2.25rem; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-header h2 { font-size: 2.25rem; }
         
-        /* Small standard badge for other sections */
-        .section-badge {
-            background-color: rgba(0, 51, 102, 0.1);
-            color: var(--primary-color);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
         }
 
-        .feature-card {
-            background: var(--bg-white);
-            padding: 40px 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--secondary-color);
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: var(--primary-color);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover::before { transform: scaleX(1); }
-
-        .icon-box {
-            width: 50px; height: 50px;
-            background-color: rgba(242, 101, 34, 0.1);
-            color: var(--accent-color);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; margin-bottom: 20px;
-        }
-
-        .bg-light {
-            background-color: var(--bg-light);
-            border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        /* --- DETAILED LISTS --- */
-        .features-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 60px;
-            justify-content: center;
-        }
-        
-        .feature-list-col {
-            flex: 1; min-width: 300px;
-            background: white;
+        .feature-item {
             padding: 30px;
+            background: white;
             border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
         }
 
-        .specs-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex; align-items: flex-start;
-            color: var(--text-main);
-        }
+        .feature-item:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
         
-        .specs-list li:last-child { border-bottom: none; }
-        .specs-list li i { color: var(--accent-color); margin-right: 15px; margin-top: 4px; }
+        .icon-circle {
+            width: 50px; height: 50px;
+            background: rgba(15, 76, 129, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; margin-bottom: 20px;
+        }
 
-        /* --- PRICING --- */
-        .pricing-section { background: linear-gradient(to bottom, var(--bg-light) 50%, #fff 50%); }
+        /* --- WHO IT'S FOR --- */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .audience-card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+        .audience-card p { font-size: 0.95rem; }
+
+        /* --- PRICING & DOWNLOAD --- */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
 
         .pricing-card {
             background: white;
-            border-radius: 16px;
-            padding: 50px;
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid var(--primary);
             text-align: center;
-            max-width: 450px;
-            margin: 0 auto;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .price-tag { font-size: 3.5rem; font-weight: 700; color: var(--primary); margin: 10px 0; }
+        .price-period { font-size: 1rem; color: var(--secondary); font-weight: 400; }
+
+        .install-guide {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--radius);
             border: 1px solid #e2e8f0;
-            position: relative;
         }
+
+        .install-guide h3 { font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
         
-        .best-value {
-            position: absolute;
-            top: -15px; left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-color);
-            color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
+        .os-instruction { margin-bottom: 25px; }
+        .os-instruction h4 { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; font-size: 1rem; }
+        .note-box {
+            background: #fff4e5;
+            color: #663c00;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            border-left: 3px solid #f97316;
         }
 
-        .price {
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin: 10px 0;
-            letter-spacing: -2px;
+        /* --- ABOUT & SUPPORT --- */
+        .bio-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid #e2e8f0;
         }
 
-        .price span { font-size: 1.1rem; color: var(--text-muted); font-weight: 400; letter-spacing: normal; }
+        .bio-text h3 { margin-top: 0; }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .faq-item h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .faq-item p { font-size: 0.95rem; margin-bottom: 0; }
 
         /* --- FOOTER --- */
         footer {
-            background-color: #0f172a;
+            background-color: #1e293b;
             color: #94a3b8;
-            padding: 60px 0 30px 0;
+            padding: 60px 0 20px;
             font-size: 0.9rem;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 40px;
-        }
-        
-        .footer-col h4 { color: white; margin-bottom: 20px; }
-        .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a { color: #94a3b8; }
-        .footer-col ul li a:hover { color: var(--accent-color); }
-        .copyright { text-align: center; font-size: 0.85rem; }
+        .footer-links a { color: #cbd5e1; margin: 0 10px; }
+        .footer-links a:hover { color: white; }
+        .copyright { text-align: center; margin-top: 40px; border-top: 1px solid #334155; padding-top: 20px; }
 
-        /* --- MOBILE RESPONSIVE HAMBURGER MENU --- */
+        /* --- RESPONSIVE MOBILE OPTIMIZATION --- */
         @media (max-width: 768px) {
+            /* Navbar */
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 70px; 
+                left: 0; 
+                width: 100%; 
+                background: white; 
+                flex-direction: column; 
+                padding: 20px 0; 
+                border-bottom: 1px solid #eee; 
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); 
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { margin: 10px 0; }
+            .hamburger { display: block; }
+
+            /* Hero Section */
+            .hero { padding: 60px 0 80px; } /* Less padding on mobile */
             .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem; }
+            .hero-img-container { max-width: 100%; } /* Full width image */
             
-            /* Show Hamburger */
-            .hamburger-menu {
-                display: block;
-            }
-
-            /* Hide Nav Links by default and position them absolutely */
-            .nav-links {
-                display: none; /* Hidden by default */
-                position: absolute;
-                top: 100%; /* Push it right below the header */
-                left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-                border-top: 1px solid #eee;
-            }
-
-            /* When active class is added by JS, show it */
-            .nav-links.active {
+            /* Stack Buttons Vertically for easier tapping */
+            .hero-buttons {
                 display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
             }
-
-            .nav-links a.nav-item {
-                margin: 10px 0;
-                font-size: 1.1rem;
+            .hero-buttons .btn {
                 display: block;
                 width: 100%;
-                text-align: center;
-                padding: 10px 0;
+                margin: 0 !important; /* Override inline margins */
+                box-sizing: border-box;
             }
 
-            /* Full width button on mobile menu */
-            .btn-cta {
-                width: 80%;
-                text-align: center;
-                margin-top: 10px;
-                padding: 12px 0;
-            }
+            /* Flow Diagram Vertical */
+            .process-flow { flex-direction: column; gap: 10px; }
+            .flow-arrow { transform: rotate(90deg); }
+
+            /* General Layouts */
+            .features-grid { grid-template-columns: 1fr; } /* Single column */
+            .audience-grid, .split-layout, .bio-section, .faq-grid { grid-template-columns: 1fr; }
             
-            .pricing-section { background: var(--bg-light); }
+            /* Pricing Card Adjustment */
+            .pricing-card { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -484,18 +378,18 @@
             <nav>
                 <div class="logo">
                     <img src="logo.png" alt="Riska's Finance Logo">
-                    Riska's <span>Fixed Assets</span>
+                    <span>Riska's Fixed Assets</span>
                 </div>
                 
-                <div class="hamburger-menu" onclick="toggleMenu()">
+                <div class="hamburger" onclick="toggleMenu()">
                     <i class="fas fa-bars"></i>
                 </div>
 
                 <div class="nav-links" id="navLinks">
-                    <a href="#features" class="nav-item" onclick="toggleMenu()">Features</a>
-                    <a href="#compliance" class="nav-item" onclick="toggleMenu()">Compliance</a>
-                    <a href="#pricing" class="nav-item" onclick="toggleMenu()">Pricing</a>
-                    <a href="purchase.html" class="btn-cta" target="_blank" onclick="toggleMenu()">Buy License</a>
+                    <a href="#features">Features</a>
+                    <a href="#audience">Who It's For</a>
+                    <a href="#about">About</a>
+                    <a href="#pricing" class="btn btn-primary" style="color: white; padding: 8px 20px;">Download Now</a>
                 </div>
             </nav>
         </div>
@@ -503,158 +397,192 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                
-                <div class="badge-container">
-                    <div class="platform-badge badge-windows">
-                        <i class="fab fa-windows"></i> Windows Version 2026.1 Available
-                    </div>
-                    <div class="platform-badge badge-mac">
-                        <i class="fab fa-apple"></i> Mac Version Available
-                    </div>
-                </div>
-                
-                <h1>Professional Asset Management for CPAs</h1>
-                <p>The comprehensive solution for depreciation, tax compliance, and IRS form generation. Built by accountants, for accountants.</p>
-                <a href="#pricing" class="btn-cta" style="padding: 12px 28px; font-size: 1rem;">Get Started Today</a>
-            </div>
+            <h1>Riska’s Fixed Assets</h1>
+            <p class="sub-header">Simplify Asset Tracking & Depreciation. <br>Easy-to-use software for small businesses and accountants to calculate with confidence.</p>
             
-            <div class="hero-image-wrapper">
-                <img src="software.png" alt="Riska's Fixed Assets Dashboard" class="hero-bg-image">
+            <div class="process-flow">
+                <div class="flow-step"><i class="fas fa-keyboard"></i> Enter Assets</div>
+                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="flow-step"><i class="fas fa-calculator"></i> Auto-Calculate</div>
+                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="flow-step"><i class="fas fa-file-export"></i> Export Reports</div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn btn-primary">Download Now</a>
+                <a href="#features" class="btn btn-outline" style="margin-left: 10px;">View Features</a>
+            </div>
+
+            <div class="hero-img-container">
+                <img src="software.png" alt="Software Dashboard Screenshot" class="hero-img">
             </div>
         </div>
     </section>
 
     <section id="features" class="section">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Riska's Fixed Assets?</h2>
-                <p>We combine enterprise-grade calculations with a user-friendly interface.</p>
+            <div class="section-header">
+                <h2>Powerful Features, Simple Interface</h2>
+                <p>Everything you need to manage fixed assets without the enterprise clutter.</p>
             </div>
+
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="icon-box"><i class="fas fa-users"></i></div>
-                    <h3>Multi-Client Ready</h3>
-                    <p>Create separate .rfa files for unlimited clients. Features isolated databases and a "Recent Files" menu for quick switching.</p>
+                <div class="feature-item">
+                    <div class="icon-circle"><i class="fas fa-gavel"></i></div>
+                    <h3>IRS Compliant</h3>
+                    <p>Calculate depreciation automatically using MACRS (GDS/ADS), Section 179, and Bonus Depreciation rules.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="icon-box"><i class="fas fa-calculator"></i></div>
-                    <h3>12 Depreciation Methods</h3>
-                    <p>Includes MACRS (200, 150, SL), ACRS, Straight-Line, AMT, ACE, and Book. Supports 50 State-specific depreciation books.</p>
+                <div class="feature-item">
+                    <div class="icon-circle"><i class="fas fa-list-check"></i></div>
+                    <h3>Complete Tracking</h3>
+                    <p>Track asset purchases, disposals, and sales easily. Maintain a clear audit trail for every item.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Audit Defense</h3>
-                    <p>Year-End Close Wizard locks prior periods to prevent historical data changes. Full audit trail tracks every creation and update.</p>
+                <div class="feature-item">
+                    <div class="icon-circle"><i class="fas fa-file-pdf"></i></div>
+                    <h3>Export Ready</h3>
+                    <p>Generate professional PDF reports and Excel exports ready for QuickBooks journal entries.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="compliance" class="section bg-light">
-        <div class="container">
-            <div class="section-title">
-                <span class="section-badge">Compliance First</span>
-                <h2>Automated IRS Logic</h2>
-                <p>Stop worrying about manual calculations and rule checks. We handle the heavy lifting.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="icon-box"><i class="fas fa-magic"></i></div>
-                    <h3>Mid-Quarter Auto-Fix</h3>
-                    <p>The system automatically detects if Q4 additions exceed 40% and adjusts conventions instantly to ensure compliance.</p>
+                <div class="feature-item">
+                    <div class="icon-circle"><i class="fas fa-truck-pickup"></i></div>
+                    <h3>Multiple Asset Types</h3>
+                    <p>Native support for Vehicles, Office Equipment, Machinery, Buildings, and Land improvements.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="icon-box"><i class="fas fa-percentage"></i></div>
-                    <h3>Section 179 Logic</h3>
-                    <p>Automatic phase-out calculations and eligibility checking based on asset life and method. Includes bonus depreciation toggle.</p>
+                <div class="feature-item">
+                    <div class="icon-circle"><i class="fas fa-database"></i></div>
+                    <h3>Local Database</h3>
+                    <p>Your data stays on your machine. No cloud subscriptions, no monthly fees, total privacy.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="icon-box"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <h3>Tax Forms Ready</h3>
-                    <p>Generate IRS Form 4562 (Depreciation & Amortization) and Form 4797 (Sales of Business Property) instantly.</p>
+                <div class="feature-item">
+                    <div class="icon-circle"><i class="fas fa-key"></i></div>
+                    <h3>License Control</h3>
+                    <p>Secure version control ensures you are always using the correct tax year logic.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="reports" class="section">
+    <section id="audience" class="section bg-gray">
         <div class="container">
-            <div class="section-title">
-                <h2>Complete Feature List</h2>
+            <div class="section-header">
+                <h2>Who Is This For?</h2>
             </div>
-            <div class="features-wrapper">
-                <div class="feature-list-col">
-                    <h3><i class="fas fa-chart-pie"></i> Reporting</h3>
-                    <ul class="specs-list">
-                        <li><i class="fas fa-check"></i> Fixed Asset Summary & Detail Reports (PDF)</li>
-                        <li><i class="fas fa-check"></i> Depreciation Schedules & Projections</li>
-                        <li><i class="fas fa-check"></i> Journal Entry Reports (Monthly/Annual)</li>
-                        <li><i class="fas fa-check"></i> Category & Location Summaries</li>
-                        <li><i class="fas fa-check"></i> Multi-Book Comparison Reports</li>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="icon-circle" style="margin: 0 auto 15px; background: #e0e7ff;"><i class="fas fa-briefcase"></i></div>
+                    <h3>Small Business Owners</h3>
+                    <p>Stop guessing your depreciation expenses. Track your company vehicles and equipment in one simple place.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="icon-circle" style="margin: 0 auto 15px; background: #e0e7ff;"><i class="fas fa-calculator"></i></div>
+                    <h3>Accountants & Bookkeepers</h3>
+                    <p>Manage multiple clients efficiently. Generate depreciation schedules faster than using complex Excel sheets.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="icon-circle" style="margin: 0 auto 15px; background: #e0e7ff;"><i class="fas fa-check-double"></i></div>
+                    <h3>Compliance Seekers</h3>
+                    <p>For anyone looking for reliable, IRS-compliant calculations without paying for expensive enterprise software.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Started Today</h2>
+            </div>
+            
+            <div class="split-layout">
+                <div class="pricing-card">
+                    <h3>Single User License</h3>
+                    <div class="price-tag">$199</div>
+                    <span class="price-period">One-time purchase / per year</span>
+                    
+                    <ul style="margin: 30px 0; text-align: left; display: inline-block;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> Unlimited Clients</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> Unlimited Assets</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> PDF & Excel Exports</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> Email Support</li>
                     </ul>
+
+                    <a href="purchase.html" class="btn btn-primary" target="_blank" style="display: block; width: 100%; box-sizing: border-box;">Purchase License</a>
+                    <p style="margin-top: 15px; font-size: 0.85rem;">Secure checkout via Stripe</p>
                 </div>
-                <div class="feature-list-col">
-                    <h3><i class="fas fa-tools"></i> Tools & Usability</h3>
-                    <ul class="specs-list">
-                        <li><i class="fas fa-check"></i> CSV Import/Export capabilities</li>
-                        <li><i class="fas fa-check"></i> Asset Photo Management & Warranty Tracking</li>
-                        <li><i class="fas fa-check"></i> Tax Projection Dashboard (10-Year Forecast)</li>
-                        <li><i class="fas fa-check"></i> Dark Mode & Customizable Columns</li>
-                        <li><i class="fas fa-check"></i> Professional Tkinter GUI</li>
-                    </ul>
+
+                <div class="install-guide">
+                    <h3><i class="fas fa-download"></i> Installation Guide</h3>
+                    
+                    <div class="os-instruction">
+                        <h4><i class="fab fa-windows"></i> Windows Users</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 5px;">Double-click the installer (setup.exe).</p>
+                        <div class="note-box">
+                            <strong>Note:</strong> If you see a "Windows protected your PC" popup, click <u>More Info</u> and then <u>Run Anyway</u>. This appears because we are a new publisher.
+                        </div>
+                    </div>
+
+                    <div class="os-instruction">
+                        <h4><i class="fab fa-apple"></i> Mac Users</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 5px;">Locate the app in Finder after downloading.</p>
+                        <div class="note-box">
+                            <strong>Tip:</strong> Do not double-click. Instead, <u>Right-Click</u> (or Control+Click) the app icon and select <u>Open</u> from the menu to bypass the security check.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="pricing" class="section bg-light pricing-section">
+    <section id="about" class="section bg-gray">
         <div class="container">
-            <div class="section-title">
-                <h2>Simple, Transparent Pricing</h2>
-                <p>One license, unlimited clients.</p>
+            <div class="section-header">
+                <h2>About the Developer</h2>
             </div>
-            <div class="pricing-card">
-                <div class="best-value">Best Value</div>
-                <h3>Annual License</h3>
-                <div class="price">$199 <span>/ year</span></div>
-                <ul class="specs-list" style="margin-bottom: 30px;">
-                    <li><i class="fas fa-check-circle"></i> Unlimited Clients & Assets</li>
-                    <li><i class="fas fa-check-circle"></i> Federal & State Tax Updates</li>
-                    <li><i class="fas fa-check-circle"></i> All 12 Depreciation Methods</li>
-                    <li><i class="fas fa-check-circle"></i> Priority Email Support</li>
-                </ul>
-                <a href="purchase.html" class="btn-cta" style="display: block; width: 100%; box-sizing: border-box; padding: 12px 28px;" target="_blank">Buy License Now</a>
+            
+            <div class="bio-section">
+                <div class="bio-text">
+                    <h3>About the Company</h3>
+                    <p>Riska’s Fixed Assets was developed by Riskas Finance LLC to provide a practical solution for managing fixed assets and depreciation. The software was created to bridge the gap between expensive enterprise systems and error-prone spreadsheets.
+
+Designed with accounting accuracy in mind, Riska’s Fixed Assets helps businesses and accounting professionals save time, maintain compliance, and streamline fixed asset tracking during tax season and beyond.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px;">
+                <h3 style="text-align: center; margin-bottom: 30px;">Frequently Asked Questions</h3>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>Does it work with QuickBooks?</h4>
+                        <p>Yes, you can export reports that provide the exact journal entry numbers needed for QuickBooks Desktop or Online.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>How do I get updates?</h4>
+                        <p>We release tax law updates annually. Licensed users receive email notifications with download links.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Need Technical Support?</h4>
+                        <p>Contact us directly at: <a href="mailto:riskas.finances@gmail.com" style="color: var(--primary);">riskas.finances@gmail.com</a></p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Is there a user guide?</h4>
+                        <p>Yes, a comprehensive PDF guide is included with your download.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Riska's Finance</h4>
-                    <p>Professional tax and accounting software solutions located in Dixon, IL.</p>
+            <div style="text-align: center;">
+                <div class="footer-links">
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="mailto:riskas.finances@gmail.com">Contact Support</a>
                 </div>
-                <div class="footer-col">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#compliance">Compliance</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#">Release Notes</a></li>
-                    </ul>
+                <div class="copyright">
+                    &copy; 2026 Riska's Finance. All Rights Reserved. <br>
+                    <span style="font-size: 0.8rem; color: #64748b;">Designed & Developed in Dixon, IL.</span>
                 </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="mailto:riskas.finances@gmail.com">riskas.finances@gmail.com</a></li>
-                        <li><a href="https://riskasfinance.com/">www.riskasfinance.com</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2026 Riska's Finance. All Rights Reserved. | Developed by Amarildi and Arbri Riska.</p>
             </div>
         </div>
     </footer>
