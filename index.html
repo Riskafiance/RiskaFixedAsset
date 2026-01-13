@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.80">
+    <meta name="viewport" content="width=device-width, initial-scale=0.85">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QM7Z2NMQDB"></script>
     <script>
@@ -381,7 +381,7 @@
                     <span>Riska's Fixed Assets</span>
                 </div>
                 
-                <div class="hamburger" id="hamburgerBtn" onclick="toggleMenu()">
+                <div class="hamburger" onclick="toggleMenu()">
                     <i class="fas fa-bars"></i>
                 </div>
 
@@ -409,7 +409,7 @@
             </div>
 
             <div class="hero-buttons">
-                <a href="#pricing" class="btn btn-primary">Download Free Demo</a>
+                <a href="#pricing" class="btn btn-primary">Download Now</a>
                 <a href="#features" class="btn btn-outline" style="margin-left: 10px;">View Features</a>
             </div>
 
@@ -582,39 +582,18 @@ Designed with accounting accuracy in mind, Riska’s Fixed Assets helps business
                 <div class="copyright">
                     &copy; 2026 Riska's Finance. All Rights Reserved. <br>
                     <span style="font-size: 0.8rem; color: #64748b;">Designed & Developed in Dixon, IL.</span>
+		</div>
+		    <span style="font-size: 0.8rem; color: #64748b;">www.riskasfinance.com</span>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        const navLinks = document.getElementById('navLinks');
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-
         function toggleMenu() {
-            // This is called by the HTML onclick attribute on the hamburger icon
+            const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
-
-        // 1. Close menu when clicking ANY link inside the menu
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // 2. Close menu when clicking OUTSIDE the menu and hamburger
-        document.addEventListener('click', function(event) {
-            const isClickInsideMenu = navLinks.contains(event.target);
-            // Check if the click is on the hamburger or its child (the <i> icon)
-            const isClickOnHamburger = hamburgerBtn.contains(event.target);
-
-            // If menu is open (active) AND click is NOT inside menu AND NOT on hamburger
-            if (navLinks.classList.contains('active') && !isClickInsideMenu && !isClickOnHamburger) {
-                navLinks.classList.remove('active');
-            }
-        });
     </script>
 
 </body>
