@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.80">
     <meta name="description" content="Technical overview of Riska's Fixed Assets software. Features MACRS depreciation, Section 179 compliance, and multi-book state reporting.">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QM7Z2NMQDB"></script>
@@ -44,6 +44,7 @@
             color: var(--text-dark);
             background-color: var(--bg-white);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4 {
@@ -126,10 +127,10 @@
         }
         .btn-primary:hover { background-color: #b56d00; transform: translateY(-2px); }
 
-        /* --- PAGE HEADER (Matched to Index Hero Effects) --- */
+        /* --- PAGE HEADER (Updated to match Index Hero Effects) --- */
         .page-header {
             background-color: var(--primary-dark);
-            /* Increased opacity for visible grid lines */
+            /* Updated Opacity to 0.15 for visibility */
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
@@ -215,8 +216,8 @@
         .footer-col a { color: #9ca3af; display: block; margin-bottom: 10px; }
         .footer-col a:hover { color: white; }
 
-        /* --- MOBILE --- */
-        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-dark); }
+        /* --- MOBILE OPTIMIZATION --- */
+        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-dark); padding: 10px; }
 
         @media (max-width: 900px) {
             .feature-overview { flex-direction: column; }
@@ -224,9 +225,25 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: white; flex-direction: column; padding: 20px; box-shadow: 0 10px 10px rgba(0,0,0,0.1); }
-            .nav-links.active-menu { display: flex; }
+            /* Mobile Nav Styling to match Index */
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 60px; 
+                left: 0; 
+                width: 100%; 
+                background: white; 
+                flex-direction: column; 
+                padding: 20px; 
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+                border-top: 1px solid #eee;
+            }
+            .nav-links.active { display: flex; }
             .hamburger { display: block; }
+
+            .page-header h1 { font-size: 2rem; }
+            .page-header p { font-size: 1rem; }
+            .logo span { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -364,9 +381,30 @@
 
     <script>
         const navLinks = document.getElementById('navLinks');
+        const hamburger = document.querySelector('.hamburger');
+
+        // Toggle the menu
         function toggleMenu() {
-            navLinks.classList.toggle('active-menu');
+            navLinks.classList.toggle('active');
         }
+
+        // Close menu when clicking a link inside it
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking anywhere outside of it
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = navLinks.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+
+            // If click is OUTSIDE menu AND OUTSIDE hamburger button, close the menu
+            if (!isClickInsideMenu && !isClickOnHamburger && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
     </script>
 
 </body>
