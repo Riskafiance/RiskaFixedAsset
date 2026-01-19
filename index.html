@@ -46,6 +46,7 @@
             color: var(--text-dark);
             background-color: var(--bg-white);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased; /* Smoother text on mobile */
         }
 
         h1, h2, h3, h4 {
@@ -138,17 +139,15 @@
         }
         .nav-links a:hover { color: var(--primary-blue); }
 
-        /* --- HERO SECTION (UPDATED BG & ANIMATION) --- */
+        /* --- HERO SECTION --- */
         .hero {
             background-color: var(--primary-dark);
-            /* UPDATED: Increased opacity of white lines from 0.05 to 0.15 for better visibility */
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
                 radial-gradient(circle at 50% 40%, var(--primary-blue) 0%, var(--primary-dark) 85%);
             
             background-size: 40px 40px, 40px 40px, 100% 100%;
-            /* UPDATED: Defined initial positions for all 3 background layers */
             background-position: 0 0, 0 0, center center;
             
             color: white;
@@ -156,23 +155,19 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            /* UPDATED: Changed animation to a slower, continuous linear movement */
             animation: heroEffects 20s linear infinite;
         }
 
-        /* UPDATED Animation Keyframes: Moves the grid diagonally while pulsing the glow */
         @keyframes heroEffects {
             0% {
                 background-position: 0 0, 0 0, center center;
                 background-size: 40px 40px, 40px 40px, 100% 100%;
             }
             50% {
-                /* Grid moves halfway, Glow expands slightly */
                 background-position: -20px -20px, -20px -20px, center center;
                 background-size: 40px 40px, 40px 40px, 120% 120%;
             }
             100% {
-                /* Grid moves full 40px (seamless loop), Glow shrinks back */
                 background-position: -40px -40px, -40px -40px, center center;
                 background-size: 40px 40px, 40px 40px, 100% 100%;
             }
@@ -180,6 +175,8 @@
 
         .hero h1 { color: white; font-size: 3rem; margin-bottom: 20px; }
         .hero p { font-size: 1.25rem; color: #E0E0E0; max-width: 700px; margin: 0 auto 40px; }
+        
+        .hero-buttons { margin-bottom: 40px; }
 
         /* Software Mockup Container */
         .hero-software-showcase {
@@ -292,7 +289,8 @@
             border: 1px solid #005691;
             flex: 1;
             max-width: 450px;
-            min-width: 320px;
+            /* MOBILE FIX: removed rigid min-width to prevent overflow */
+            min-width: 300px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -310,7 +308,8 @@
             box-shadow: var(--shadow-card);
             flex: 1;
             max-width: 500px;
-            min-width: 320px;
+            /* MOBILE FIX: removed rigid min-width to prevent overflow */
+            min-width: 300px;
         }
 
         .install-guide-card h3 {
@@ -361,8 +360,8 @@
         .footer-col a { color: #9ca3af; display: block; margin-bottom: 10px; }
         .footer-col a:hover { color: white; }
 
-        /* --- MOBILE --- */
-        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-dark); }
+        /* --- MOBILE OPTIMIZATION --- */
+        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-dark); padding: 10px; }
 
         @media (max-width: 900px) {
             .feature-row, .feature-row.reverse { flex-direction: column; text-align: center; gap: 30px; }
@@ -370,13 +369,43 @@
             .pricing-layout { flex-direction: column; align-items: center; }
             .specs-table { display: block; overflow-x: auto; }
             .footer-content { flex-direction: column; gap: 30px; }
+            
+            /* Allow cards to shrink on smaller screens */
+            .pricing-card, .install-guide-card {
+                min-width: unset;
+                width: 100%;
+            }
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: white; flex-direction: column; padding: 20px; box-shadow: 0 10px 10px rgba(0,0,0,0.1); }
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 60px; /* Matches header height */
+                left: 0; 
+                width: 100%; 
+                background: white; 
+                flex-direction: column; 
+                padding: 20px; 
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+                border-top: 1px solid #eee;
+            }
             .nav-links.active { display: flex; }
             .hamburger { display: block; }
-            .hero h1 { font-size: 2.2rem; }
+            
+            /* Text sizing for small screens */
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            
+            /* Stack buttons vertically on mobile for easier clicking */
+            .hero-buttons { display: flex; flex-direction: column; gap: 15px; padding: 0 20px; }
+            .hero-buttons .btn { margin: 0 !important; width: 100%; }
+
+            .feature-text h2 { font-size: 1.8rem; }
+            .logo span { font-size: 1.1rem; }
+            
+            /* Adjust padding */
+            .feature-block, .pricing-section { padding: 50px 0; }
         }
     </style>
 </head>
@@ -405,7 +434,7 @@
             <h1>Comprehensive Fixed Asset Management</h1>
             <p>Simplify Asset Tracking & Depreciation. Easy-to-use software for small businesses and accountants to calculate with confidence.</p>
             
-            <div style="margin-bottom: 40px;">
+            <div class="hero-buttons">
                 <a href="#pricing" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 35px;">Get Started Today</a>
                 <a href="https://drive.google.com/file/d/1nvcoeUHc1uNRpUHcNjIGSQjwD9-jjpBl/view?usp=drive_link" target="_blank" class="btn btn-secondary" style="margin-left: 15px; color: white; border-color: white;">Download Guide</a>
             </div>
@@ -590,9 +619,30 @@
 
     <script>
         const navLinks = document.getElementById('navLinks');
+        const hamburger = document.querySelector('.hamburger');
+
+        // Toggle the menu
         function toggleMenu() {
             navLinks.classList.toggle('active');
         }
+
+        // Close menu when clicking a link inside it
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking anywhere outside of it
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = navLinks.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+
+            // If click is OUTSIDE menu AND OUTSIDE hamburger button, close the menu
+            if (!isClickInsideMenu && !isClickOnHamburger && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
     </script>
 
 </body>
