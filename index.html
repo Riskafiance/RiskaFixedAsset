@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.85">
-    <meta name="description" content="Simplify Asset Tracking & Depreciation. Easy-to-use software for small businesses and accountants to calculate with confidence.">
+    <meta name="description" content="Simplify Asset Tracking & Depreciation. Professional software for accountants.">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QM7Z2NMQDB"></script>
     <script>
@@ -15,47 +15,59 @@
 
     <title>Riska's Fixed Assets | Professional Depreciation Software</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
-            /* Professional Financial Palette */
-            --primary-dark: #002B49;      /* Deep Navy */
-            --primary-blue: #005691;      /* Corporate Blue */
-            --accent-gold: #D68100;       /* Call to Action */
-            --bg-light: #F4F7F9;          /* Light Blue-Grey */
-            --bg-white: #ffffff;
-            --text-dark: #1A1A1A;
-            --text-gray: #546E7A;
-            --border-color: #CFD8DC;
+            --primary-blue: #0052cc;
+            --primary-dark: #091e42;
             
-            --container-width: 1200px;
-            --header-height: 60px;
-            --shadow-card: 0 2px 8px rgba(0,0,0,0.08);
-            --shadow-hover: 0 10px 20px rgba(0,0,0,0.12);
+            /* --- JUICY 3D ORANGE PALETTE --- */
+            --btn-gradient-top: #FFAB40;  /* Bright Amber/Gold */
+            --btn-gradient-bot: #F4511E;  /* Deep Red-Orange */
+            --btn-border: #E64A19;        /* Darker border for definition */
+            --btn-shadow: rgba(244, 81, 30, 0.4); /* Glow color */
+            
+            --bg-light: #f7f8fa;
+            --bg-white: #ffffff;
+            
+            --text-main: #172b4d;
+            --text-sub: #5e6c84;
+            --border-light: #ebecf0;
+            
+            --container-width: 1140px;
+            --header-height: 72px;
+            
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         * { box-sizing: border-box; }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
             padding: 0;
-            color: var(--text-dark);
+            color: var(--text-main);
             background-color: var(--bg-white);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased; /* Smoother text on mobile */
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4 {
             color: var(--primary-dark);
             margin-top: 0;
             font-weight: 700;
+            letter-spacing: -0.01em;
         }
+        
+        h2 { font-size: 2.25rem; margin-bottom: 1rem; }
+        p { margin-bottom: 1.5rem; color: var(--text-sub); }
 
-        a { text-decoration: none; transition: 0.3s; }
+        a { text-decoration: none; transition: 0.2s ease; }
         ul { padding-left: 20px; }
         
         .container {
@@ -63,46 +75,81 @@
             max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 15px;
+            position: relative;
+            z-index: 2;
         }
 
-        /* --- BUTTONS --- */
+        /* --- "JUICY" 3D BUTTONS --- */
         .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 50px; /* Perfect Pill */
             font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
-            text-align: center;
-            letter-spacing: 0.5px;
-            border: none;
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+            gap: 8px;
+            letter-spacing: 0.01em;
+            text-transform: uppercase; /* Match the "Schedule" button style */
+            font-size: 0.9rem;
         }
 
+        /* The 3D Orange Button */
         .btn-primary {
-            background-color: var(--accent-gold);
-            color: white;
-            box-shadow: 0 4px 6px rgba(214, 129, 0, 0.3);
+            /* Vertical Gradient to create the rounded 3D look */
+            background: linear-gradient(180deg, var(--btn-gradient-top) 0%, var(--btn-gradient-bot) 100%);
+            color: white; /* White text for primary button */
+            
+            /* Slight border to define the shape */
+            border: 1px solid var(--btn-border);
+            
+            /* The Magic: Inset White Shadow (Top Highlight) + Colored Drop Shadow */
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.4),  /* Top inner highlight (shine) */
+                inset 0 -1px 0 rgba(0,0,0,0.1),       /* Bottom inner shadow (depth) */
+                0 4px 14px 0 var(--btn-shadow);       /* Outer colored glow */
+            
+            text-shadow: 0 1px 2px rgba(0,0,0,0.15); /* Text readability */
         }
-        .btn-primary:hover { background-color: #b56d00; transform: translateY(-2px); }
+        
+        .btn-primary:hover { 
+            transform: translateY(-2px);
+            filter: brightness(1.1); /* Light up on hover */
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.5),
+                0 8px 20px 0 var(--btn-shadow); /* Shadow grows */
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+            background: linear-gradient(180deg, var(--btn-gradient-bot) 0%, var(--btn-gradient-bot) 100%);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); /* Pressed look */
+        }
 
         .btn-secondary {
             background-color: transparent;
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
+            border: 2px solid white; /* White border */
+            color: white; /* White text */
         }
-        .btn-secondary:hover { background-color: var(--primary-blue); color: white; }
+        .btn-secondary:hover { 
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
 
         /* --- HEADER --- */
         header {
-            background-color: var(--bg-white);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             height: var(--header-height);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-light);
             position: sticky;
             top: 0;
             z-index: 1000;
             display: flex;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         nav {
@@ -112,300 +159,336 @@
             width: 100%;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .logo img {
-            height: 32px; 
-            width: auto;
-        }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo img { height: 36px; width: auto; }
+        .logo span { font-size: 1.25rem; font-weight: 700; color: var(--primary-dark); }
+        .logo span b { color: var(--btn-gradient-bot); font-weight: 800; }
 
-        .logo span {
-            font-size: 1.25rem;
-            font-weight: 900;
-            color: var(--primary-blue);
-            text-transform: capitalize;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a { 
-            color: var(--text-dark); 
-            font-weight: 500; 
-            font-size: 0.9rem;
+            color: var(--text-sub); 
+            font-weight: 600; 
+            font-size: 0.85rem;
+            text-transform: uppercase;
         }
-        .nav-links a:hover { color: var(--primary-blue); }
+        .nav-links a:hover { color: var(--btn-gradient-bot); }
 
         /* --- HERO SECTION --- */
         .hero {
-            background-color: var(--primary-dark);
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-                radial-gradient(circle at 50% 40%, var(--primary-blue) 0%, var(--primary-dark) 85%);
-            
-            background-size: 40px 40px, 40px 40px, 100% 100%;
-            background-position: 0 0, 0 0, center center;
-            
+            background: radial-gradient(circle at top right, #1e3a8a 0%, #0f172a 100%);
             color: white;
-            padding: 80px 0 100px;
+            padding: 80px 0 140px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            animation: heroEffects 20s linear infinite;
         }
 
-        @keyframes heroEffects {
-            0% {
-                background-position: 0 0, 0 0, center center;
-                background-size: 40px 40px, 40px 40px, 100% 100%;
-            }
-            50% {
-                background-position: -20px -20px, -20px -20px, center center;
-                background-size: 40px 40px, 40px 40px, 120% 120%;
-            }
-            100% {
-                background-position: -40px -40px, -40px -40px, center center;
-                background-size: 40px 40px, 40px 40px, 100% 100%;
-            }
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 100%; height: 100%; top: 0; left: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
         }
 
-        .hero h1 { color: white; font-size: 3rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.25rem; color: #E0E0E0; max-width: 700px; margin: 0 auto 40px; }
+        .hero-shapes {
+            position: absolute;
+            width: 100%; height: 100%; top: 0; left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
         
-        .hero-buttons { margin-bottom: 40px; }
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: aurora 25s infinite alternate;
+        }
 
-        /* Software Mockup Container */
+        .shape-1 {
+            background: #2563eb;
+            width: 600px; height: 600px;
+            top: -200px; left: -100px;
+        }
+        
+        .shape-2 {
+            background: #06b6d4;
+            width: 500px; height: 500px;
+            bottom: -100px; right: -100px;
+            animation-delay: -5s;
+        }
+
+        @keyframes aurora {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 30px) scale(1.1); }
+        }
+
+        .hero-content { position: relative; z-index: 2; }
+
+        .hero h1 { 
+            color: white; 
+            font-size: 3.5rem; 
+            margin-bottom: 1.5rem; 
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero p { 
+            font-size: 1.25rem; 
+            color: #b3c7f7; 
+            max-width: 680px; 
+            margin: 0 auto 2.5rem; 
+            font-weight: 300;
+        }
+
         .hero-software-showcase {
-            margin-top: 50px;
-            perspective: 1000px;
+            margin-top: 3rem;
+            perspective: 1200px;
+            animation: slowFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes slowFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .software-window {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            max-width: 900px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: var(--shadow-float);
+            max-width: 960px;
             margin: 0 auto;
             overflow: hidden;
-            border: 1px solid #4a6fa5;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
         }
-
-        .window-bar {
-            background: #f1f5f9;
-            padding: 10px 15px;
-            border-bottom: 1px solid #cbd5e1;
+        
+        .software-window::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 50%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, transparent 100%);
+            pointer-events: none;
+        }
+        
+        .window-header {
+            background: #f4f5f7;
+            padding: 12px 16px;
+            border-bottom: 1px solid #dfe1e6;
             display: flex;
             gap: 8px;
+            align-items: center;
         }
-        .window-dot { width: 12px; height: 12px; border-radius: 50%; }
-        .dot-red { background: #ef4444; }
-        .dot-yellow { background: #f59e0b; }
-        .dot-green { background: #22c55e; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red { background: #ff5c5c; border: 1px solid #e04444; } 
+        .yellow { background: #ffbd2e; border: 1px solid #dea123; } 
+        .green { background: #27c93f; border: 1px solid #1aab29; }
+        .url-bar {
+            flex: 1;
+            background: white;
+            height: 24px;
+            border-radius: 4px;
+            margin-left: 12px;
+            border: 1px solid #dfe1e6;
+        }
 
-        .hero-img {
-            width: 100%;
-            height: auto;
+        .hero-img { width: 100%; height: auto; display: block; }
+
+        /* --- PERFECT FOR SECTION --- */
+        .use-case-section {
+            padding: 4rem 0;
+            background: white;
+            position: relative;
+            z-index: 3;
+            margin-top: -3rem;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.03);
+        }
+        
+        .section-tag {
+            text-transform: uppercase;
+            color: var(--btn-gradient-bot);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
             display: block;
+            margin-bottom: 0.5rem;
         }
 
-        /* --- TRUST BADGES --- */
-        .trust-strip {
-            background: #f8fafc;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 20px 0;
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 3rem;
+        }
+        
+        .use-case-card {
+            padding: 24px;
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            transition: 0.3s;
             text-align: center;
         }
-        .trust-grid {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
+        .use-case-card:hover { 
+            border-color: var(--btn-gradient-bot);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card);
         }
-        .trust-item {
+        .icon-box {
+            width: 50px; height: 50px;
+            background: #fff3e0;
+            color: var(--btn-gradient-bot);
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: var(--text-gray);
-            font-weight: 600;
-            font-size: 0.9rem;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
         }
-        .trust-item i { color: var(--primary-blue); font-size: 1.2rem; }
+        .use-case-card h4 { margin: 0; font-size: 1.1rem; color: var(--text-main); }
 
         /* --- FEATURES --- */
-        .feature-block { padding: 80px 0; border-bottom: 1px solid #eee; }
-        
-        .feature-row {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-        
+        .feature-block { padding: 5rem 0; border-bottom: 1px solid var(--border-light); }
+        .feature-row { display: flex; align-items: center; gap: 4rem; }
         .feature-row.reverse { flex-direction: row-reverse; }
-
         .feature-text { flex: 1; }
-        .feature-text h2 { font-size: 2.2rem; margin-bottom: 20px; }
-        .feature-text p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 25px; }
         
+        .feature-list { list-style: none; padding: 0; margin-top: 1.5rem; }
         .feature-list li {
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
             display: flex;
             align-items: flex-start;
             gap: 12px;
         }
-        .feature-list i { color: var(--accent-gold); margin-top: 4px; }
+        .feature-list i { 
+            color: #10b981;
+            margin-top: 4px; 
+            font-size: 1rem; 
+        }
 
         .feature-image-wrapper {
-            flex: 1.2;
+            flex: 1.1;
             box-shadow: var(--shadow-card);
             border-radius: 8px;
             overflow: hidden;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-light);
         }
         .feature-image-wrapper img { width: 100%; display: block; }
 
-        /* --- PRICING & INSTALLATION --- */
+        /* --- PRICING --- */
         .pricing-section {
             background-color: var(--bg-light);
-            padding: 80px 0;
+            padding: 5rem 0;
         }
 
         .pricing-layout {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            align-items: stretch;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .pricing-card {
             background: white;
-            padding: 40px;
-            border-radius: 8px;
+            padding: 2.5rem;
+            border-radius: 12px;
             box-shadow: var(--shadow-card);
-            border: 1px solid #005691;
-            flex: 1;
-            max-width: 450px;
-            /* MOBILE FIX: removed rigid min-width to prevent overflow */
-            min-width: 300px;
-            text-align: center;
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
         }
+        .pricing-card::top {
+            content: "";
+            position: absolute; top:0; left:0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--btn-gradient-top), var(--btn-gradient-bot));
+        }
 
-        .price-large { font-size: 3.5rem; color: var(--primary-dark); font-weight: 800; }
-        .price-sub { color: var(--text-gray); display: block; margin-top: -10px; margin-bottom: 20px; }
+        .price-large { font-size: 3rem; color: var(--text-main); font-weight: 700; line-height: 1; margin: 1rem 0 0.25rem; }
+        .price-sub { color: var(--text-sub); font-size: 0.9rem; margin-bottom: 2rem; display: block; }
 
-        /* Installation Guide Styles */
         .install-guide-card {
             background: white;
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #eee;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
             box-shadow: var(--shadow-card);
-            flex: 1;
-            max-width: 500px;
-            /* MOBILE FIX: removed rigid min-width to prevent overflow */
-            min-width: 300px;
         }
+        .install-guide-card h3 { border-bottom: 1px solid var(--border-light); padding-bottom: 1rem; margin-bottom: 1.5rem; }
 
-        .install-guide-card h3 {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
+        .os-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
-
-        .os-section { margin-bottom: 25px; }
-        .os-title { font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .os-icon {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            background: #f4f5f7;
+            width: 40px; height: 40px;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
         
         .note-box {
-            background-color: #FFF7ED; /* Light orange bg */
-            border-left: 4px solid #F97316; /* Orange accent */
+            background-color: #fff7ed;
+            border: 1px solid #ffedd5;
+            color: #9a3412;
             padding: 12px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            color: #431407;
-            margin-top: 8px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
         }
-        
-        .note-box strong { color: #9A3412; }
-        .note-box u { text-decoration: underline; text-decoration-thickness: 1px; }
-
-        .specs-table {
-            width: 100%;
-            margin-top: 40px;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: var(--shadow-card);
-        }
-        .specs-table th { background: var(--primary-dark); color: white; padding: 15px; text-align: left; }
-        .specs-table td { padding: 15px; border-bottom: 1px solid #eee; color: var(--text-gray); }
 
         /* --- FOOTER --- */
         footer {
-            background-color: #111827;
-            color: #9ca3af;
-            padding: 60px 0 20px;
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid #1e293b;
         }
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 3rem;
         }
-        .footer-col h4 { color: white; margin-bottom: 20px; }
-        .footer-col a { color: #9ca3af; display: block; margin-bottom: 10px; }
+        .footer-col h4 { color: white; margin-bottom: 1.2rem; font-size: 1rem; }
+        .footer-col a { color: #94a3b8; display: block; margin-bottom: 0.8rem; font-size: 0.9rem; }
         .footer-col a:hover { color: white; }
+        
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #1e293b;
+            padding-top: 1.5rem;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
 
-        /* --- MOBILE OPTIMIZATION --- */
-        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-dark); padding: 10px; }
+        /* --- MOBILE --- */
+        .hamburger { display: none; font-size: 1.5rem; color: var(--text-main); cursor: pointer; }
 
         @media (max-width: 900px) {
-            .feature-row, .feature-row.reverse { flex-direction: column; text-align: center; gap: 30px; }
+            .feature-row, .feature-row.reverse { flex-direction: column; text-align: center; gap: 2rem; }
             .feature-list { text-align: left; display: inline-block; }
-            .pricing-layout { flex-direction: column; align-items: center; }
-            .specs-table { display: block; overflow-x: auto; }
-            .footer-content { flex-direction: column; gap: 30px; }
-            
-            /* Allow cards to shrink on smaller screens */
-            .pricing-card, .install-guide-card {
-                min-width: unset;
-                width: 100%;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .pricing-layout { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            .nav-links { 
-                display: none; 
-                position: absolute; 
-                top: 60px; /* Matches header height */
-                left: 0; 
-                width: 100%; 
-                background: white; 
-                flex-direction: column; 
-                padding: 20px; 
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
-                border-top: 1px solid #eee;
-            }
+            .nav-links { display: none; position: absolute; top: 72px; left: 0; width: 100%; background: white; flex-direction: column; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 1px solid var(--border-light); }
             .nav-links.active { display: flex; }
             .hamburger { display: block; }
-            
-            /* Text sizing for small screens */
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            
-            /* Stack buttons vertically on mobile for easier clicking */
-            .hero-buttons { display: flex; flex-direction: column; gap: 15px; padding: 0 20px; }
-            .hero-buttons .btn { margin: 0 !important; width: 100%; }
-
-            .feature-text h2 { font-size: 1.8rem; }
-            .logo span { font-size: 1.1rem; }
-            
-            /* Adjust padding */
-            .feature-block, .pricing-section { padding: 50px 0; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
 </head>
@@ -416,35 +499,45 @@
             <nav>
                 <div class="logo">
                     <img src="logo.png" alt="Riska's Fixed Assets Logo">
-                    <span>Riska's Fixed Assets</span>
+                    <span>Riska's <b>Fixed Assets</b></span>
                 </div>
                 <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
                 <div class="nav-links" id="navLinks">
                     <a href="#features">Features</a>
-                    <a href="#specs">Specifications</a>
+                    <a href="#specs">System Reqs</a>
                     <a href="about.html">About</a>
-                    <a href="#pricing" class="btn btn-primary">Buy License - $199</a>
+                    <a href="#pricing" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;">Buy License - $199</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="container">
-            <h1>Comprehensive Fixed Asset Management</h1>
-            <p>Simplify Asset Tracking & Depreciation. Easy-to-use software for small businesses and accountants to calculate with confidence.</p>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+
+        <div class="container hero-content">
+            <h1>Comprehensive Fixed Asset<br>Management Software</h1>
+            <p>Developed by accountants, for accountants. Simplify asset tracking, automate MACRS depreciation, and generate tax-ready reports with confidence.</p>
             
-            <div class="hero-buttons">
-                <a href="#pricing" class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 35px;">Get Started Today</a>
-                <a href="https://drive.google.com/file/d/1nvcoeUHc1uNRpUHcNjIGSQjwD9-jjpBl/view?usp=drive_link" target="_blank" class="btn btn-secondary" style="margin-left: 15px; color: white; border-color: white;">Download Guide</a>
+            <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 3rem;">
+                <a href="#pricing" class="btn btn-primary">
+                    <i class="fas fa-download"></i> Download Now
+                </a>
+                <a href="https://drive.google.com/file/d/1nvcoeUHc1uNRpUHcNjIGSQjwD9-jjpBl/view?usp=drive_link" target="_blank" class="btn btn-secondary">
+                    <i class="fas fa-book"></i> User Guide
+                </a>
             </div>
 
             <div class="hero-software-showcase">
                 <div class="software-window">
-                    <div class="window-bar">
-                        <div class="window-dot dot-red"></div>
-                        <div class="window-dot dot-yellow"></div>
-                        <div class="window-dot dot-green"></div>
+                    <div class="window-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <div class="url-bar"></div>
                     </div>
                     <img src="Screenshot 2026-01-13 155247.png" alt="Riska's Fixed Assets Dashboard" class="hero-img">
                 </div>
@@ -452,27 +545,50 @@
         </div>
     </section>
 
-    <div class="trust-strip">
+    <section class="use-case-section">
         <div class="container">
-            <div class="trust-grid">
-                <div class="trust-item"><i class="fas fa-check-circle"></i> IRS Compliant (MACRS)</div>
-                <div class="trust-item"><i class="fas fa-file-export"></i> QuickBooks Compatible</div>
-                <div class="trust-item"><i class="fas fa-shield-alt"></i> Local Secure Data</div>
-                <div class="trust-item"><i class="fas fa-infinity"></i> Unlimited Assets</div>
+            <div style="text-align: center;">
+                <span class="section-tag">Target Audience</span>
+                <h2>Perfect for Any Business</h2>
+                <p>Scalable architecture designed to meet the rigorous demands of financial professionals.</p>
+            </div>
+            
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <div class="icon-box"><i class="fas fa-user-tie"></i></div>
+                    <h4>CPA Firms</h4>
+                    <p style="font-size: 0.9rem; margin: 0.5rem 0 0;">Manage unlimited client entities.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="icon-box"><i class="fas fa-building"></i></div>
+                    <h4>Small Business</h4>
+                    <p style="font-size: 0.9rem; margin: 0.5rem 0 0;">Simplify internal bookkeeping.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="icon-box"><i class="fas fa-city"></i></div>
+                    <h4>Corporations</h4>
+                    <p style="font-size: 0.9rem; margin: 0.5rem 0 0;">Forecasting and budget planning.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="icon-box"><i class="fas fa-laptop-house"></i></div>
+                    <h4>Freelancers</h4>
+                    <p style="font-size: 0.9rem; margin: 0.5rem 0 0;">Track equipment and write-offs.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <section id="features" class="feature-block">
         <div class="container">
             <div class="feature-row">
                 <div class="feature-text">
+                    <span class="section-tag">Efficiency</span>
                     <h2>Intuitive Asset Entry</h2>
-                    <p>Stop struggling with depreciation formulas. Our intelligent entry wizard handles the heavy lifting for you.</p>
+                    <p>Eliminate manual calculation errors. Our intelligent entry wizard ensures compliance with the latest tax codes.</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> <strong>Smart Templates:</strong> Select from pre-defined templates (Vehicles, Computers, Furniture) to auto-fill depreciation lives and methods.</li>
-                        <li><i class="fas fa-check"></i> <strong>Bonus & Sec 179:</strong> Easily elect Bonus Depreciation or Section 179 expensing with a single click.</li>
-                        <li><i class="fas fa-check"></i> <strong>Validation:</strong> Built-in error checking prevents you from saving incomplete records.</li>
+                        <li><i class="fas fa-check-circle"></i> <div><strong>Smart Templates:</strong> Pre-defined templates (Vehicles, Computers) auto-fill life years.</div></li>
+                        <li><i class="fas fa-check-circle"></i> <div><strong>Tax Incentives:</strong> One-click election for Bonus Depreciation and Section 179.</div></li>
+                        <li><i class="fas fa-check-circle"></i> <div><strong>Real-time Validation:</strong> Prevents saving incomplete or non-compliant records.</div></li>
                     </ul>
                 </div>
                 <div class="feature-image-wrapper">
@@ -482,16 +598,17 @@
         </div>
     </section>
 
-    <section class="feature-block" style="background-color: #fafafa;">
+    <section class="feature-block" style="background-color: #fbfcff;">
         <div class="container">
             <div class="feature-row reverse">
                 <div class="feature-text">
+                    <span class="section-tag">Security & Control</span>
                     <h2>Audit Trail & Data Integrity</h2>
-                    <p>Maintain complete control over your financial data. Riska's Fixed Assets logs every change to ensure your books are audit-ready.</p>
+                    <p>Maintain granular control over your financial data. Riska's Fixed Assets is built for audit readiness.</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> <strong>Detailed Logs:</strong> Track who changed what, when, and the old vs. new values.</li>
-                        <li><i class="fas fa-check"></i> <strong>Data Validation:</strong> Run system-wide health checks to identify missing dates or unassigned categories.</li>
-                        <li><i class="fas fa-check"></i> <strong>Local Database:</strong> Your sensitive financial data resides on your machine, not in the cloud.</li>
+                        <li><i class="fas fa-check-circle"></i> <div><strong>Change Logs:</strong> Detailed history of who changed what, when, and previous values.</div></li>
+                        <li><i class="fas fa-check-circle"></i> <div><strong>Health Diagnostics:</strong> System-wide scans to identify missing or inconsistent data.</div></li>
+                        <li><i class="fas fa-check-circle"></i> <div><strong>Local Database:</strong> Your sensitive financial data stays on your machine, not the cloud.</div></li>
                     </ul>
                 </div>
                 <div class="feature-image-wrapper">
@@ -505,12 +622,13 @@
         <div class="container">
             <div class="feature-row">
                 <div class="feature-text">
-                    <h2>Powerful Reporting Tools</h2>
-                    <p>Generate the reports you need for tax filing and management reviews instantly.</p>
+                    <span class="section-tag">Reporting</span>
+                    <h2>Powerful Reporting Engine</h2>
+                    <p>Generate professional, exportable reports for tax filing, management review, and budget forecasting.</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> <strong>Form 4562 Data:</strong> Get the exact numbers needed for your federal tax return.</li>
-                        <li><i class="fas fa-check"></i> <strong>Excel Import/Export:</strong> Move data in and out seamlessly. Perfect for bulk updates.</li>
-                        <li><i class="fas fa-check"></i> <strong>Depreciation Projections:</strong> Forecast future depreciation expenses for budget planning.</li>
+                        <li><i class="fas fa-check-circle"></i> <div><strong>Tax Ready:</strong> Generates data structured for IRS Form 4562.</div></li>
+                        <li><i class="fas fa-check-circle"></i> <div><strong>Interoperability:</strong> Seamless Excel and PDF import/export capabilities.</div></li>
+                        <li><i class="fas fa-check-circle"></i> <div><strong>Forecasting:</strong> Project future depreciation expenses up to 10 years.</div></li>
                     </ul>
                 </div>
                 <div class="feature-image-wrapper">
@@ -522,97 +640,90 @@
 
     <section id="pricing" class="pricing-section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 50px;">Get Started Today</h2>
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>One time purchase. Own your software.</p>
+            </div>
             
             <div class="pricing-layout">
                 <div class="pricing-card">
+                    <div style="border-top: 4px solid var(--btn-gradient-bot); position: absolute; top: 0; left: 0; width: 100%;"></div>
                     <h3>Single User License</h3>
                     <div class="price-large">$199</div>
-                    <span class="price-sub">One-time purchase / per year</span>
+                    <span class="price-sub">One-time purchase / Perpetual License</span>
                     
-                    <ul style="text-align: left; margin: 30px 0; list-style: none; padding: 0;">
-                        <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 10px;"></i> Unlimited Clients</li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 10px;"></i> Unlimited Assets</li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #eee;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 10px;"></i> PDF & Excel Exports</li>
-                        <li style="padding: 10px 0;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 10px;"></i> Email Support</li>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 8px 0; border-bottom: 1px solid #f1f2f4;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 10px;"></i> Unlimited Clients</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #f1f2f4;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 10px;"></i> Unlimited Assets</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #f1f2f4;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 10px;"></i> PDF & Excel Exports</li>
+                        <li style="padding: 8px 0;"><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 10px;"></i> Priority Email Support</li>
                     </ul>
                     
                     <div style="margin-top: auto;">
                         <a href="purchase.html" class="btn btn-primary" target="_blank" style="width: 100%;">Purchase License</a>
-                        <p style="font-size: 0.8rem; margin-top: 15px; color: #888;">Secure checkout via Stripe</p>
+                        <p style="font-size: 0.8rem; margin-top: 15px; color: #888; text-align: center;">Secured via Stripe</p>
                     </div>
                 </div>
 
                 <div class="install-guide-card">
                     <h3><i class="fas fa-download"></i> Installation Guide</h3>
                     
-                    <div class="os-section">
-                        <div class="os-title"><i class="fab fa-windows"></i> Windows Users</div>
-                        <p style="margin-bottom: 5px; font-size: 0.95rem; color: var(--text-gray);">Double-click the installer (setup.exe).</p>
-                        <div class="note-box">
-                            <strong>Note:</strong> If Windows requests verification for new software publishers, click <u>More Info</u> and then <u>Run Anyway</u> to complete installation.
+                    <div class="os-item">
+                        <div class="os-icon"><i class="fab fa-windows"></i></div>
+                        <div>
+                            <strong>Windows Users</strong>
+                            <p style="font-size: 0.9rem; margin: 0;">Double-click the installer (setup.exe).</p>
+                            <div class="note-box">
+                                <strong>Note:</strong> If prompted by Windows SmartScreen, click <u>More Info</u> then <u>Run Anyway</u>.
+                            </div>
                         </div>
                     </div>
 
-                    <div class="os-section" style="margin-bottom: 0;">
-                        <div class="os-title"><i class="fab fa-apple"></i> Mac Users</div>
-                        <p style="margin-bottom: 5px; font-size: 0.95rem; color: var(--text-gray);">Locate the app in Finder after downloading.</p>
-                        <div class="note-box">
-                            <strong>Tip:</strong> If prompted to verify developer access, <u>Right-Click</u> the icon and select <u>Open</u> to authorize the application.
+                    <div class="os-item">
+                        <div class="os-icon"><i class="fab fa-apple"></i></div>
+                        <div>
+                            <strong>macOS Users</strong>
+                            <p style="font-size: 0.9rem; margin: 0;">Locate the app in Finder after downloading.</p>
+                            <div class="note-box">
+                                <strong>Tip:</strong> If prompted, <u>Right-Click</u> the icon and select <u>Open</u> to authorize.
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div id="specs" style="max-width: 800px; margin: 60px auto 0;">
-                <h3 style="margin-bottom: 20px;">System Requirements</h3>
-                <table class="specs-table">
-                    <tr>
-                        <th width="30%">Operating System</th>
-                        <td>Windows 10, Windows 11 (64-bit) or macOS 12+</td>
-                    </tr>
-                    <tr>
-                        <th>Processor</th>
-                        <td>1 GHz or faster processor</td>
-                    </tr>
-                    <tr>
-                        <th>Memory (RAM)</th>
-                        <td>4 GB RAM minimum (8 GB recommended)</td>
-                    </tr>
-                    <tr>
-                        <th>Disk Space</th>
-                        <td>500 MB free hard disk space</td>
-                    </tr>
-                </table>
+            
+            <div id="specs" style="max-width: 800px; margin: 4rem auto 0; text-align: center;">
+                <h4 style="color: var(--text-sub); margin-bottom: 1rem;">System Requirements</h4>
+                <p style="font-size: 0.9rem;">Windows 10/11 (64-bit) or macOS 12+ &bull; 1GHz Processor &bull; 4GB RAM &bull; 500MB Disk Space</p>
             </div>
         </div>
     </section>
 
     <footer id="about">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-col" style="flex: 2;">
-                    <h4 style="color: white; font-size: 1.2rem;">Riska's Finance LLP</h4>
-                    <p>Professional accounting software developed by accountants, for accountants. Based in Dixon, IL.</p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:riskas.finances@gmail.com" style="display:inline; color:#9ca3af;">riskas.finances@gmail.com</a></p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Riska's Finance LLP</h4>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Professional accounting software engineered for precision and compliance. Proudly based in Dixon, IL.</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:riskas.finances@gmail.com" style="display:inline; color:#94a3b8;">riskas.finances@gmail.com</a></p>
                 </div>
                 <div class="footer-col">
                     <h4>Product</h4>
                     <a href="#features">Features</a>
                     <a href="#pricing">Pricing</a>
-                    <a href="#">Release Notes</a>
+                    <a href="#specs">System Requirements</a>
                 </div>
                 <div class="footer-col">
                     <h4>Support</h4>
-                    <a href="https://drive.google.com/file/d/1nvcoeUHc1uNRpUHcNjIGSQjwD9-jjpBl/view?usp=drive_link">User Guide</a>
+                    <a href="https://drive.google.com/file/d/1nvcoeUHc1uNRpUHcNjIGSQjwD9-jjpBl/view?usp=drive_link">User Manual</a>
                     <a href="#">Knowledge Base</a>
-                    <a href="https://riskasfinance.com/contact">Contact Us</a>
+                    <a href="https://riskasfinance.com/contact">Contact Support</a>
                 </div>
             </div>
             
-            <div style="text-align: center; border-top: 1px solid #374151; padding-top: 20px; color: #9ca3af;">
+            <div class="copyright">
                 &copy; 2026 Riska's Finance LLP. All Rights Reserved. <br>
-                <a href="https://www.riskasfinance.com" style="font-size: 0.9rem; color: #64748b;">www.riskasfinance.com</a>
+                <a href="https://www.riskasfinance.com" style="color: #475569;">www.riskasfinance.com</a>
             </div>
         </div>
     </footer>
@@ -638,7 +749,6 @@
             const isClickInsideMenu = navLinks.contains(event.target);
             const isClickOnHamburger = hamburger.contains(event.target);
 
-            // If click is OUTSIDE menu AND OUTSIDE hamburger button, close the menu
             if (!isClickInsideMenu && !isClickOnHamburger && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
